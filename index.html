@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* --- Clean White & Soft Shadow Theme --- */
@@ -64,7 +66,7 @@
         }
         #main-header.scrolled .header-container { padding-top: 1rem; padding-bottom: 1rem; }
         
-        /* --- Hero Section with Integrated Summary --- */
+        /* --- Hero Section --- */
         #hero {
             position: relative;
             display: flex;
@@ -96,15 +98,7 @@
         .hero-content h1 { font-size: 4.5rem; font-weight: 800; color: var(--heading-color); line-height: 1.1; letter-spacing: -2px; }
         .hero-content .subtitle { font-size: 1.75rem; margin: 1.5rem 0; font-weight: 500; color: #333; }
         #typing-text { color: var(--primary-color); }
-        
-        /* NEW: Style for the integrated bio */
-        .hero-content .bio {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 1.5rem auto 0 auto;
-            line-height: 1.7;
-        }
-
+        .hero-content .bio { font-size: 1.1rem; max-width: 600px; margin: 1.5rem auto 0 auto; line-height: 1.7; }
         .hero-buttons { margin-top: 2.5rem; }
         .btn { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 99px; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3); }
         .btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 112, 243, 0.4); }
@@ -129,11 +123,63 @@
         .experience-item .company { color: #333; font-weight: 500; margin-top: 0.5rem; }
         .experience-item .date { font-size: 1rem; color: #888; }
         .experience-item ul { list-style-position: outside; padding-left: 1.5rem; margin-top: 1rem; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .project-link { margin-top: 1.5rem; }
         .project-link a { font-weight: 500; text-decoration: none; color: var(--primary-color); }
         .project-link a:hover { text-decoration: underline; }
         
+        /* Stylized Technical Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .expertise-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .expertise-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 112, 243, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .expertise-icon i { font-size: 2.5rem; color: var(--primary-color); }
+        .expertise-card h4 { font-size: 1.1rem; font-weight: 500; color: var(--heading-color); }
+        .expertise-card:hover .expertise-icon { background-color: var(--primary-color); transform: scale(1.1); }
+        .expertise-card:hover .expertise-icon i { color: white; }
+
+        /* Stylized Tools & Technologies Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .tool-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .tool-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 112, 243, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .tool-icon i { font-size: 2.5rem; color: var(--primary-color); }
+        .tool-card h4 { font-size: 1.25rem; font-weight: 700; color: var(--heading-color); margin-bottom: 0.75rem; }
+        .tool-card p { font-size: 1rem; line-height: 1.5; }
+        .tool-card:hover .tool-icon { background-color: var(--primary-color); transform: scale(1.1); }
+        .tool-card:hover .tool-icon i { color: white; }
+
         /* Contact & Footer */
         #contact .soft-shadow-card { text-align: center; }
         footer { text-align: center; padding: 4rem 2rem; color: #999; font-size: 0.9rem; }
@@ -163,10 +209,10 @@
             <a href="#" class="logo">Aniket Singh</a>
             <nav>
                 <ul class="nav-links">
-                    <!-- REMOVED "About" link -->
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#tools">Tools</a></li>
                 </ul>
             </nav>
             <a href="#contact" class="cta-button">Contact</a>
@@ -185,7 +231,6 @@
             <div class="hero-content">
                 <h1 class="fade-up">Aniket Singh</h1>
                 <p class="subtitle fade-up" style="transition-delay: 100ms;">I am an <span id="typing-text"></span></p>
-                <!-- NEW: Integrated bio paragraph -->
                 <p class="bio fade-up" style="transition-delay: 200ms;">
                     An AI Engineer specializing in the end-to-end machine learning lifecycle. I leverage Large Language Models and MLOps principles to build intelligent, impactful applications that solve real-world problems.
                 </p>
@@ -208,7 +253,7 @@
                     <p class="date">June 2024 – Present</p>
                     <ul>
                         <li>Spearheaded the development of an AI-powered tutoring platform for grades 5–8.</li>
-                        <li>Engineered an agent using Item Response Theory (IRT) to accurately calibrate question difficulty.</li>
+                        <li>Engineered an analytical chatbot enabling teachers to query a student database in natural language, providing real-time performance analysis and data-driven insights.</li>
                     </ul>
                 </div>
             </div>
@@ -235,36 +280,72 @@
                 <h3>MCP AI Assistant - Multi-Source Intelligence</h3>
                 <p>An AI assistant powered by Llama3-8B and LangChain, featuring real-time data integration, persistent memory, and a full-stack deployment with Docker.</p>
                 <div class="project-link">
-                    <a href="#" target="_blank">View Project &rarr;</a>
+                    <a href="https://github.com/Aniketsingh12/Ai_assistance_using_MCP" target="_blank">View Project &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- End Projects Section -->
 
-    <!-- Technical Skills Section -->
-    <section id="skills" class="container">
-        <h2 class="section-title fade-up">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="soft-shadow-card fade-up">
+    <!-- Technical Expertise Section -->
+    <section id="expertise" class="container">
+        <h2 class="section-title fade-up">Technical Expertise</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-brain"></i></div>
+                <h4>Machine Learning & Deep Learning</h4>
+            </div>
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <h4>Generative AI & LLMs</h4>
+            </div>
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                <h4>MLOps & Model Deployment</h4>
+            </div>
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-comments"></i></div>
+                <h4>Natural Language Processing (NLP)</h4>
+            </div>
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-book-open-reader"></i></div>
+                <h4>Retrieval-Augmented Generation</h4>
+            </div>
+            <div class="expertise-card soft-shadow-card fade-up">
+                <div class="expertise-icon"><i class="fas fa-sitemap"></i></div>
+                <h4>Data Structures & Algorithms</h4>
+            </div>
+        </div>
+    </section>
+    <!-- End Technical Expertise Section -->
+
+    <!-- Tools & Technologies Section -->
+    <section id="tools" class="container">
+        <h2 class="section-title fade-up">Tools & Technologies</h2>
+        <div class="tools-grid">
+            <div class="tool-card soft-shadow-card fade-up">
+                <div class="tool-icon"><i class="fas fa-code"></i></div>
                 <h4>Languages</h4>
                 <p>Python (Advanced), SQL (Intermediate), C++ (Beginner)</p>
             </div>
-            <div class="soft-shadow-card fade-up">
+            <div class="tool-card soft-shadow-card fade-up">
+                <div class="tool-icon"><i class="fas fa-robot"></i></div>
                 <h4>AI/ML Frameworks</h4>
                 <p>PyTorch, TensorFlow, Transformers, LangChain, Scikit-learn</p>
             </div>
-            <div class="soft-shadow-card fade-up">
+            <div class="tool-card soft-shadow-card fade-up">
+                <div class="tool-icon"><i class="fas fa-server"></i></div>
                 <h4>MLOps & Cloud</h4>
-                <p>Docker, AWS (EC2, S3, SageMaker), Git/GitHub, Model Versioning, Weights & Biases</p>
+                <p>Docker, AWS, Git/GitHub, Model Versioning, Weights & Biases</p>
             </div>
-            <div class="soft-shadow-card fade-up">
+            <div class="tool-card soft-shadow-card fade-up">
+                <div class="tool-icon"><i class="fas fa-database"></i></div>
                 <h4>Data & Algorithms</h4>
                 <p>Pandas, NumPy, DSA (Arrays, Trees, Graphs, DP)</p>
             </div>
         </div>
     </section>
-    <!-- End Skills Section -->
+    <!-- End Tools & Technologies Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="container">

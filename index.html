@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Singh | AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Clean White & Soft Shadow Theme --- */
+        :root {
+            --bg-color: #F9F9F9;
+            --card-bg-color: #FFFFFF;
+            --text-color: #555555;
+            --heading-color: #111111;
+            --primary-color: #0070f3;
+            --border-color: #EAEAEA;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Styles --- */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: padding 0.3s ease;
+        }
+        .logo { font-weight: 700; font-size: 1.25rem; color: var(--heading-color); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .cta-button { background: var(--primary-color); color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 99px; font-weight: 500; transition: transform 0.2s ease; }
+        .cta-button:hover { transform: scale(1.05); }
+        .hamburger { display: none; cursor: pointer; }
+        .hamburger span { display: block; width: 25px; height: 3px; margin: 5px 0; background-color: var(--heading-color); }
+        #main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid var(--border-color);
+        }
+        #main-header.scrolled .header-container { padding-top: 1rem; padding-bottom: 1rem; }
+        
+        /* --- Hero Section with Integrated Summary --- */
+        #hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 8rem 2rem 2rem;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h1 { font-size: 4.5rem; font-weight: 800; color: var(--heading-color); line-height: 1.1; letter-spacing: -2px; }
+        .hero-content .subtitle { font-size: 1.75rem; margin: 1.5rem 0; font-weight: 500; color: #333; }
+        #typing-text { color: var(--primary-color); }
+        
+        /* NEW: Style for the integrated bio */
+        .hero-content .bio {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0 auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons { margin-top: 2.5rem; }
+        .btn { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 99px; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3); }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 112, 243, 0.4); }
+
+        /* General Layout & Cards */
+        .container { max-width: 960px; margin: 0 auto; padding: 6rem 2rem; }
+        .section-title { text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; color: var(--heading-color); letter-spacing: -1px; }
+        h3 { color: var(--heading-color); font-size: 1.5rem; font-weight: 700; }
+        .soft-shadow-card {
+            background: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .soft-shadow-card:hover { transform: translateY(-8px); box-shadow: 0 8px 12px rgba(0, 0, 0, 0.03), 0 20px 40px rgba(0, 0, 0, 0.08); }
+
+        /* Experience, Projects, Skills */
+        .experience-stack, .project-grid { display: grid; gap: 2rem; }
+        .experience-item { display: flex; flex-direction: column; }
+        .experience-item .company { color: #333; font-weight: 500; margin-top: 0.5rem; }
+        .experience-item .date { font-size: 1rem; color: #888; }
+        .experience-item ul { list-style-position: outside; padding-left: 1.5rem; margin-top: 1rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-link { margin-top: 1.5rem; }
+        .project-link a { font-weight: 500; text-decoration: none; color: var(--primary-color); }
+        .project-link a:hover { text-decoration: underline; }
+        
+        /* Contact & Footer */
+        #contact .soft-shadow-card { text-align: center; }
+        footer { text-align: center; padding: 4rem 2rem; color: #999; font-size: 0.9rem; }
+        
+        /* Animation & Responsive */
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .container, .hero-container { padding-left: 1rem; padding-right: 1rem; }
+            .hero-content h1 { font-size: 2.75rem; letter-spacing: -1.5px; }
+            .hero-content .subtitle { font-size: 1.25rem; }
+            .hero-content .bio { font-size: 1rem; }
+            .section-title { font-size: 2.5rem; }
+            .soft-shadow-card { border-radius: 16px; padding: 2rem; }
+            .nav-links, .cta-button { display: none; }
+            .hamburger { display: block; }
+            .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--card-bg-color); padding: 1.5rem 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04); align-items: center; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">Aniket Singh</a>
+            <nav>
+                <ul class="nav-links">
+                    <!-- REMOVED "About" link -->
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">Contact</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div id="tsparticles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="fade-up">Aniket Singh</h1>
+                <p class="subtitle fade-up" style="transition-delay: 100ms;">I am an <span id="typing-text"></span></p>
+                <!-- NEW: Integrated bio paragraph -->
+                <p class="bio fade-up" style="transition-delay: 200ms;">
+                    An AI Engineer specializing in the end-to-end machine learning lifecycle. I leverage Large Language Models and MLOps principles to build intelligent, impactful applications that solve real-world problems.
+                </p>
+                <div class="hero-buttons fade-up" style="transition-delay: 300ms;">
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="section-title fade-up">Experience</h2>
+        <div class="experience-stack">
+            <div class="soft-shadow-card fade-up">
+                <div class="experience-item">
+                    <h3>AI Engineer</h3>
+                    <p class="company">Acadally</p>
+                    <p class="date">June 2024 – Present</p>
+                    <ul>
+                        <li>Spearheaded the development of an AI-powered tutoring platform for grades 5–8.</li>
+                        <li>Engineered an agent using Item Response Theory (IRT) to accurately calibrate question difficulty.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="soft-shadow-card fade-up">
+                <div class="experience-item">
+                    <h3>Graduate Engineer Trainee</h3>
+                    <p class="company">Radius Synergies</p>
+                    <p class="date">April 2024 – June 2024</p>
+                    <ul>
+                        <li>Collaborated on a forecasting project for electricity consumption.</li>
+                        <li>Developed an efficient ETL pipeline processing over 17 million records.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Experience Section -->
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title fade-up">Featured Project</h2>
+        <div class="project-grid">
+            <div class="soft-shadow-card fade-up">
+                <h3>MCP AI Assistant - Multi-Source Intelligence</h3>
+                <p>An AI assistant powered by Llama3-8B and LangChain, featuring real-time data integration, persistent memory, and a full-stack deployment with Docker.</p>
+                <div class="project-link">
+                    <a href="#" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Projects Section -->
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title fade-up">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="soft-shadow-card fade-up">
+                <h4>Languages</h4>
+                <p>Python (Advanced), SQL (Intermediate), C++ (Beginner)</p>
+            </div>
+            <div class="soft-shadow-card fade-up">
+                <h4>AI/ML Frameworks</h4>
+                <p>PyTorch, TensorFlow, Transformers, LangChain, Scikit-learn</p>
+            </div>
+            <div class="soft-shadow-card fade-up">
+                <h4>MLOps & Cloud</h4>
+                <p>Docker, AWS (EC2, S3, SageMaker), Git/GitHub, Model Versioning, Weights & Biases</p>
+            </div>
+            <div class="soft-shadow-card fade-up">
+                <h4>Data & Algorithms</h4>
+                <p>Pandas, NumPy, DSA (Arrays, Trees, Graphs, DP)</p>
+            </div>
+        </div>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="soft-shadow-card fade-up">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Contact</h2>
+            <p style="max-width: 500px; margin: 0 auto 2rem auto;">I'm always open to discussing new projects and opportunities. Feel free to reach out.</p>
+            <a href="mailto:aniketsingh12090@gmail.com" class="btn">Say Hello</a>
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <footer><p>&copy; 2024 Aniket Singh</p></footer>
+
+    <!-- tsParticles Library -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header Scroll Effect & Mobile Menu
+            const header = document.getElementById('main-header');
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            window.addEventListener('scroll', () => { if (window.scrollY > 50) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); } });
+            if (hamburger) { hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); }); }
+
+            // Typing Animation
+            const typingText = document.getElementById('typing-text');
+            if (typingText) {
+                const words = ["AI Engineer", "MLOps Enthusiast", "Generative AI Developer"];
+                let wordIndex = 0, charIndex = 0, isDeleting = false;
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) { charIndex--; } else { charIndex++; }
+                    typingText.textContent = currentWord.substring(0, charIndex);
+                    if (!isDeleting && charIndex === currentWord.length) { isDeleting = true; setTimeout(type, 2000); } 
+                    else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); } 
+                    else { setTimeout(type, isDeleting ? 100 : 200); }
+                }
+                type();
+            }
+
+            // Scroll Animation
+            const faders = document.querySelectorAll('.fade-up');
+            const appearOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+            }, { threshold: 0.1 });
+            faders.forEach(fader => appearOnScroll.observe(fader));
+        });
+
+        // tsParticles Initialization
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#cccccc" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 2, random: { enable: true, minimumValue: 1 } },
+                links: { color: "#cccccc", distance: 150, enable: true, opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" }, },
+            },
+            interactivity: {
+                events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" }, },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 }, },
+            },
+            detectRetina: true,
+        });
+    </script>
+</body>
+</html>

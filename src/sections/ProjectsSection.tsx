@@ -19,7 +19,12 @@ function ProjectCard({ project, index, total, progress }: CardProps) {
   const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   return (
-    <div className="sticky top-24 flex h-[min(56vh,440px)] min-h-[330px] items-start justify-center md:top-32">
+    // Anchor id so an external link (e.g. the resume) can deep-link to this
+    // specific card, not just the section as a whole.
+    <div
+      id={`project-${project.number}`}
+      className="sticky top-24 flex h-[min(56vh,440px)] min-h-[330px] scroll-mt-24 items-start justify-center md:top-32"
+    >
       <motion.article
         style={{ scale, top: `${index * 28}px` }}
         className="relative flex h-full w-full max-w-6xl flex-col overflow-hidden rounded-[40px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-6 sm:rounded-[50px] sm:p-8 md:rounded-[60px] md:p-10"

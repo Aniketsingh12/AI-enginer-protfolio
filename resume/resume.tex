@@ -22,16 +22,17 @@
 
 % Customize section formatting
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{8pt}{4pt}
+\titlespacing{\section}{0pt}{6pt}{3pt}
 
 % Custom commands for contact info.
-% linkedin/github show the actual URL as visible text, not just the word
-% "LinkedIn"/"GitHub" -- most ATS parsers only extract visible PDF text, not
-% the underlying \href target, so a generic label alone loses the URL.
+% linkedin/github/portfolio show the actual URL as visible text, not just a
+% generic word -- most ATS parsers only extract visible PDF text, not the
+% underlying \href target, so a bare label alone loses the URL entirely.
 \newcommand{\phone}[1]{\faPhone\ #1}
 \newcommand{\email}[1]{\faEnvelope\ \href{mailto:#1}{#1}}
 \newcommand{\linkedin}[1]{\faLinkedin\ \href{https://linkedin.com/in/#1}{linkedin.com/in/#1}}
 \newcommand{\github}[1]{\faGithub\ \href{https://github.com/#1}{github.com/#1}}
+\newcommand{\portfolio}[1]{\faGlobe\ \href{https://#1}{#1}}
 
 % Remove default paragraph indentation
 \setlength{\parindent}{0pt}
@@ -51,10 +52,20 @@
     \email{aniketsingh12090@gmail.com} \quad
     % TODO: verify this is your real LinkedIn slug -- unconfirmed elsewhere.
     \linkedin{aniketsingh} \quad
-    \github{Aniketsingh12}
+    \github{Aniketsingh12} \quad
+    % TODO: confirm GitHub Pages is published (Settings -> Pages) before
+    % distributing this resume -- it was unpublished as of the last check.
+    \portfolio{aniketsingh12.github.io/AI-enginer-protfolio}
 \end{center}
 
-\vspace{6pt}
+\vspace{5pt}
+
+% Summary Section
+\section{SUMMARY}
+
+AI Engineer who takes ideas from a rough problem statement to a system people actually use -- spanning data, models, agents, and the infrastructure underneath. Comfortable across the stack; most focused on making systems fast, affordable, and reliable enough to trust in production.
+
+\vspace{4pt}
 
 % Experience Section
 \section{EXPERIENCE}
@@ -77,41 +88,60 @@
     \item \textbf{High-Volume ETL Pipeline:} Developed an efficient ETL pipeline processing over 17 million records, significantly accelerating data preparation for machine learning models.
 \end{itemize}
 
-\vspace{6pt}
+\vspace{4pt}
 
 % Projects Section
+% Each title links to that exact project's card on the live portfolio
+% (id="project-0N" on the site), not just the section as a whole.
 \section{PROJECTS}
 
-% TODO: point this at the actual repo -- github.com/Aniketsingh12 is a
-% placeholder (your profile root), not this specific project's repo.
-\textbf{MCP AI Assistant -- Multi-Source Intelligence Platform} \quad \href{https://github.com/Aniketsingh12}{\faGithub} \quad \textbf{| AI/ML, Full Stack} \hfill \textbf{Dec 2024} \\
-\vspace{2pt}
-\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-    \item \textbf{Multi-Source Integration:} Built an AI assistant using Model Context Protocol (MCP) that dynamically connects to external services (web scraping, search APIs, accommodation data) for real-time information retrieval.
-    \item \textbf{Conversational AI:} Implemented a LangChain-powered agent with Groq's Llama3-8B model, featuring persistent memory management and context-aware interactions across user sessions.
-    \item \textbf{Full-Stack Development:} Developed both Streamlit and Flask web interfaces with async processing, comprehensive error handling, and Docker containerization for scalable deployment.
+\textbf{MCP Forge -- Spec-to-MCP-Server Generator} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-01}{\faExternalLinkAlt} \hfill \textbf{Developer Platform}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
+    \item Built a platform that turns an OpenAPI spec or an installed Python library into a complete, installable MCP server through deterministic, audited code generation -- no LLM calls in the core pipeline.
+    \item Built a playground that spawns the generated server as a real subprocess and drives it over the live MCP protocol, so what gets tested is exactly what ships, not a simulation.
+    \item Closed code-injection, path-traversal, and SSRF vulnerabilities found during development, each backed by a regression test.
 \end{itemize}
 
-\vspace{6pt}
+\vspace{4pt}
+
+\textbf{TaskForce -- Multi-Agent Workflow Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-02}{\faExternalLinkAlt} \hfill \textbf{Multi-Agent Systems}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
+    \item Built a platform for orchestrating teams of AI agents through multi-step business workflows, with per-agent model routing (local or hosted) and live streaming execution.
+    \item Designed a concurrency-safe orchestration engine for sequential, parallel, and conditional agent execution, with per-run cost caps and automatic crash recovery.
+    \item Implemented a bounded ReAct tool-calling loop and per-agent model fallback so a workflow degrades gracefully instead of failing when a provider is unavailable.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Lumio -- RAG Chatbot Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-04}{\faExternalLinkAlt} \hfill \textbf{RAG Platform}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
+    \item Built a multi-tenant SaaS for RAG-powered chatbots, with per-tenant vector-database isolation and three interchangeable LLM backends, including a fully offline mode.
+    \item Designed a 5-step reasoning pipeline (intent, retrieval, generation, confidence scoring, human handoff) so the assistant escalates instead of guessing when it is unsure.
+    \item Replaced a synchronous document-ingestion path with a fast-fail check and inline fallback, cutting upload latency from 60--90s to about 5s when no background worker is running.
+\end{itemize}
+
+\vspace{4pt}
 
 % Core Competencies -- flat list, not a table. Multi-column tables are a
 % known ATS-parsing risk: some parsers read column-by-column instead of
 % row-by-row, scrambling the order these keywords come out in.
 \section{CORE COMPETENCIES}
 
-Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet\ Model Context Protocol (MCP) \textbullet\ Natural Language Processing (NLP) \textbullet\ Retrieval-Augmented Generation (RAG) \textbullet\ MLOps \& Model Deployment \textbullet\ Data Structures \& Algorithms
+Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet\ Model Context Protocol (MCP) \textbullet\ Retrieval-Augmented Generation (RAG) \textbullet\ Natural Language Processing (NLP) \textbullet\ Voice \& Conversational AI \textbullet\ MLOps \& Model Deployment
 
-\vspace{6pt}
+\vspace{4pt}
 
 % Technical Skills Section
 \section{TECHNICAL SKILLS}
 
-\textbf{Languages:} Python (Advanced), C++ (Beginner), SQL (Intermediate) \\
-\textbf{AI/ML Frameworks:} PyTorch, TensorFlow, Transformers, LangChain, Scikit-learn \\
-\textbf{MLOps \& Cloud:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, Model Versioning, Weights \& Biases \\
-\textbf{Data \& Algorithms:} Pandas, NumPy, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems)
+\textbf{Languages:} Python (Advanced), TypeScript, SQL, C++ \\
+\textbf{AI/ML \& Agentic Systems:} PyTorch, TensorFlow, Transformers, LangChain, ReAct Tool-Calling, Multi-Agent Orchestration, Scikit-learn \\
+\textbf{LLMs, RAG \& MCP:} Claude, GPT, Ollama, Together AI, Model Context Protocol (MCP), ChromaDB, FAISS, Sentence Transformers \\
+\textbf{Backend, Data \& Voice:} FastAPI, SQLAlchemy, Celery, Redis, WebSockets, PostgreSQL, Supabase, Whisper, ElevenLabs, Twilio, Pandas, NumPy \\
+\textbf{Cloud \& Tools:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, CI/CD, Weights \& Biases, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems) \\
+\textbf{Also:} React, Tailwind CSS -- light frontend for full-stack builds
 
-\vspace{6pt}
+\vspace{4pt}
 
 % Education Section
 \section{EDUCATION}
@@ -124,7 +154,7 @@ Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet
 \textbf{Bal Bharti School} \hfill \textbf{CGPA: 7.2} \\
 \textit{12th -- PCM} \hfill Prayagraj, India
 
-\vspace{6pt}
+\vspace{4pt}
 
 % Certifications Section
 \section{CERTIFICATIONS}

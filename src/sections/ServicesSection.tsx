@@ -14,7 +14,7 @@ export default function ServicesSection() {
         className="mb-16 text-center font-black uppercase leading-none tracking-tight text-[#0C0C0C] sm:mb-20 md:mb-28"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
-        Services
+        What I Do
       </FadeIn>
 
       <div className="mx-auto max-w-5xl">

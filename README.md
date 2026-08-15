@@ -6,12 +6,23 @@ throughout.
 
 ## Run it
 
+This is a compiled app, not a static file — **opening `index.html` directly will show a
+blank white page.** That file is only Vite's entry stub (an empty `<div id="root">` and a
+pointer to `src/main.tsx`); the real page is assembled at build time.
+
 ```bash
 npm install
 npm run dev
 ```
 
 Then open http://localhost:5173.
+
+To view the production build instead:
+
+```bash
+npm run build
+npm run preview
+```
 
 | Script | What it does |
 |---|---|
@@ -22,10 +33,22 @@ Then open http://localhost:5173.
 
 ## Deploy
 
-`npm run build` emits a fully static `dist/` — publish that directory to GitHub Pages,
-Netlify, Vercel, Cloudflare Pages, or any static host. `vite.config.ts` sets
-`base: './'`, so the build works from a domain root *and* from a repo subpath
-(e.g. a GitHub Pages project site) without further configuration.
+`npm run build` emits `dist/`, which contains exactly two files:
+
+```
+dist/index.html        ← all CSS and JS inlined, self-contained
+dist/img/portrait.png
+```
+
+Publish that directory to GitHub Pages, Netlify, Vercel, Cloudflare Pages, or any static
+host. `vite.config.ts` sets `base: './'` and inlines the bundle as a classic script rather
+than an ES module, so `dist/index.html` works from a domain root, from a repo subpath
+(a GitHub Pages project site), **and by double-clicking it on your desktop** — the way the
+old single-file site did.
+
+> If your GitHub Pages site serves the repo *root*, it will now show a blank page, because
+> the root `index.html` is the build's source entry rather than the finished page. Point
+> Pages at `dist/` (or copy `dist/`'s two files to wherever you publish).
 
 > Previously this repo served a hand-written `index.html` straight from the root. That
 > version is preserved in [`legacy/`](legacy/) — it is no longer built or deployed.

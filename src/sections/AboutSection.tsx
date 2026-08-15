@@ -3,7 +3,7 @@ import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
 
 const ABOUT_COPY =
-  'I build AI products end to end — agents that plan and call tools, retrieval systems grounded in real documents, and the deployment plumbing that keeps them alive. I care most about the unglamorous parts: cost, latency, failure modes, and knowing when a model should say it does not know.';
+  'I am an AI engineer. I take ideas from a rough problem statement to a system people actually use — the data, the model, the interface, and the infrastructure underneath. What I enjoy most is the part after the demo works: making it fast, affordable, and reliable enough to trust.';
 
 export default function AboutSection() {
   return (

@@ -4,7 +4,7 @@ import ContactButton from '../components/ContactButton';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
+  { label: 'What I Do', href: '#services' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -51,8 +51,7 @@ export default function HeroSection() {
           className="max-w-[160px] font-light uppercase leading-snug tracking-wide text-[#D7E2EA] sm:max-w-[220px] md:max-w-[260px]"
           style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
         >
-          an ai engineer building agents, rag systems and the plumbing that keeps them
-          running
+an ai engineer building intelligent systems from first prototype to production
         </FadeIn>
 
         <FadeIn delay={0.5} y={20}>

@@ -34,8 +34,9 @@ export default function ContactSection() {
         className="mt-8 max-w-[560px] text-center font-light leading-relaxed text-[#D7E2EA]/75 sm:mt-10"
         style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.25rem)' }}
       >
-        Open to full-time roles and freelance builds — agents, RAG, MCP, voice, or getting
-        an AI prototype the rest of the way to production. Fastest reply is by email.
+        Open to full-time roles and freelance work — scoping a new idea, building out a
+        model, or getting an existing prototype the rest of the way to production. Fastest
+        reply is by email.
       </FadeIn>
 
       <FadeIn delay={0.3} y={20} className="mt-10 sm:mt-12">

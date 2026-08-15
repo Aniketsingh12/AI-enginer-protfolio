@@ -22,7 +22,7 @@
 
 % Customize section formatting
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{5pt}{2pt}
+\titlespacing{\section}{0pt}{4pt}{1pt}
 
 % Custom commands for contact info.
 % linkedin/github/portfolio show the actual URL as visible text, not just a
@@ -58,7 +58,7 @@
     \portfolio{aniketsingh12.github.io/AI-enginer-protfolio}
 \end{center}
 
-\vspace{4pt}
+\vspace{3pt}
 
 % Projects Section
 % Each title links to that exact project's card on the live portfolio
@@ -69,28 +69,25 @@
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a platform that turns an OpenAPI spec or an installed Python library into a complete, installable MCP server through deterministic, audited code generation -- no LLM calls in the core pipeline.
     \item Built a playground that spawns the generated server as a real subprocess and drives it over the live MCP protocol, so what gets tested is exactly what ships, not a simulation.
-    \item Closed code-injection, path-traversal, and SSRF vulnerabilities found during development, each backed by a regression test.
 \end{itemize}
 
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{TaskForce -- Multi-Agent Workflow Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-02}{\faExternalLinkAlt} \hfill \textbf{Multi-Agent Systems}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a platform for orchestrating teams of AI agents through multi-step business workflows, with per-agent model routing (local or hosted) and live streaming execution.
     \item Designed a concurrency-safe orchestration engine for sequential, parallel, and conditional agent execution, with per-run cost caps and automatic crash recovery.
-    \item Implemented a bounded ReAct tool-calling loop and per-agent model fallback so a workflow degrades gracefully instead of failing when a provider is unavailable.
 \end{itemize}
 
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{Lumio -- RAG Chatbot Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-04}{\faExternalLinkAlt} \hfill \textbf{RAG Platform}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a multi-tenant SaaS for RAG-powered chatbots, with per-tenant vector-database isolation and three interchangeable LLM backends, including a fully offline mode.
-    \item Designed a 5-step reasoning pipeline (intent, retrieval, generation, confidence scoring, human handoff) so the assistant escalates instead of guessing when it is unsure.
     \item Replaced a synchronous document-ingestion path with a fast-fail check and inline fallback, cutting upload latency from 60--90s to about 5s when no background worker is running.
 \end{itemize}
 
-\vspace{3pt}
+\vspace{2pt}
 
 % Experience Section
 \section{EXPERIENCE}
@@ -104,16 +101,15 @@
     \item \textbf{Text-to-SQL Interface:} Designed and implemented a robust agent that translates teacher queries into SQL, enabling rapid data retrieval and real-time performance analytics.
 \end{itemize}
 
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{Graduate Engineer Trainee} \hfill \textbf{Apr 2024 -- Jun 2024} \\
 \textit{Radius Synergies} \hfill Delhi, India \\
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
-    \item \textbf{Predictive Analytics:} Collaborated on a forecasting project for electricity consumption, contributing to strategic energy efficiency initiatives.
-    \item \textbf{High-Volume ETL Pipeline:} Developed an efficient ETL pipeline processing over 17 million records, significantly accelerating data preparation for machine learning models.
+    \item \textbf{Predictive Analytics \& ETL:} Built an ETL pipeline processing 17M+ records to prepare data for an electricity-consumption forecasting model, supporting strategic energy-efficiency planning.
 \end{itemize}
 
-\vspace{3pt}
+\vspace{2pt}
 
 % Core Competencies -- flat list, not a table. Multi-column tables are a
 % known ATS-parsing risk: some parsers read column-by-column instead of
@@ -122,7 +118,7 @@
 
 Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet\ Model Context Protocol (MCP) \textbullet\ Retrieval-Augmented Generation (RAG) \textbullet\ Natural Language Processing (NLP) \textbullet\ Voice \& Conversational AI \textbullet\ MLOps \& Model Deployment
 
-\vspace{3pt}
+\vspace{2pt}
 
 % Technical Skills Section
 \section{TECHNICAL SKILLS}
@@ -133,7 +129,7 @@ Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning
 \textbf{Backend, Data \& Voice:} FastAPI, SQLAlchemy, Celery, Redis, WebSockets, PostgreSQL, Supabase, Whisper, ElevenLabs, Twilio, Pandas, NumPy \\
 \textbf{Cloud, Tools \& DSA:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, CI/CD, Weights \& Biases, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems); light frontend: React, Tailwind CSS
 
-\vspace{3pt}
+\vspace{2pt}
 
 % Education Section
 \section{EDUCATION}
@@ -146,7 +142,7 @@ Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning
 \textbf{Bal Bharti School} \hfill \textbf{CGPA: 7.2} \\
 \textit{12th -- PCM} \hfill Prayagraj, India
 
-\vspace{3pt}
+\vspace{2pt}
 
 % Certifications Section
 \section{CERTIFICATIONS}

@@ -12,7 +12,9 @@ export default function LiveProjectButton({
   label = 'Live Project',
   className = '',
 }: LiveProjectButtonProps) {
-  const external = href.startsWith('http');
+  // Anything other than an in-page anchor (http links, or a file like the
+  // resume PDF) should open in its own tab rather than navigate away.
+  const external = !href.startsWith('#');
 
   return (
     <a

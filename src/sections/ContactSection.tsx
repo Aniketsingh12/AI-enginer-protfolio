@@ -1,14 +1,7 @@
-import { Github, Mail, Twitter } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import ContactButton from '../components/ContactButton';
-
-const EMAIL = 'aniketsingh12090@gmail.com';
-
-const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com/Aniketsingh12', icon: Github },
-  { label: 'X', href: 'https://x.com/Stickysuraj', icon: Twitter },
-  { label: 'Email', href: `mailto:${EMAIL}`, icon: Mail },
-];
+import LiveProjectButton from '../components/LiveProjectButton';
+import { RESUME_HREF, SOCIALS } from '../data/links';
 
 export default function ContactSection() {
   return (
@@ -39,8 +32,13 @@ export default function ContactSection() {
         reply is by email.
       </FadeIn>
 
-      <FadeIn delay={0.3} y={20} className="mt-10 sm:mt-12">
+      <FadeIn
+        delay={0.3}
+        y={20}
+        className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:mt-12"
+      >
         <ContactButton>Contact Me</ContactButton>
+        <LiveProjectButton href={RESUME_HREF} label="Download Resume" />
       </FadeIn>
 
       <FadeIn delay={0.4} y={20} className="mt-10 flex items-center gap-3 sm:mt-12">

@@ -72,19 +72,28 @@ All copy is data, not markup. Edit these and the page follows:
 | `src/data/services.ts` | The five service entries in the white section |
 | `src/data/stack.ts` | Skills and tech stack, grouped, each with a Lucide icon |
 | `src/data/experience.ts` | Roles, dates, and bullet points |
+| `src/data/links.ts` | Resume path, email, and social links (GitHub, X, ...) |
 
 Section order is assembled in `src/App.tsx`.
 
 ## Assets
 
 The only image on the site is `public/img/portrait.png` — your own avatar. Nothing is
-hotlinked from a third-party host, so the page has no external asset dependencies.
+hotlinked from a third-party host. `public/resume.pdf` is expected too (see below) but
+isn't included, since there's no real resume to ship yet.
 
 ## Things to swap before this goes live
 
 1. **Project links.** Every entry in `src/data/projects.ts` has `href: '#contact'` as a
    placeholder. Point each at its real deployment or repo.
-2. **A higher-resolution portrait.** `public/img/portrait.png` is 258×260, so the hero
+2. **Resume.** `src/data/links.ts` sets `RESUME_HREF = './resume.pdf'`, wired into the
+   "Resume" nav link and the "Download Resume" button in the Contact section — but no PDF
+   exists yet. Drop your resume at `public/resume.pdf` (exact filename) and both links work
+   immediately; leave it missing and clicking either one 404s.
+3. **Social links.** `src/data/links.ts`'s `SOCIALS` array feeds the icon row in Contact.
+   Add, remove, or repoint entries there — each needs a `label`, `href`, and a Lucide `icon`
+   (import it from `lucide-react` at the top of the file, e.g. `Linkedin`).
+4. **A higher-resolution portrait.** `public/img/portrait.png` is 258×260, so the hero
    caps it at 380px wide to avoid visible softening. Re-export it at ~1040px and the size
    ceiling in `src/sections/HeroSection.tsx` can go back up to the intended 520px.
 

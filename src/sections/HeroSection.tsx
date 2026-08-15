@@ -1,11 +1,13 @@
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
+import { RESUME_HREF } from '../data/links';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'What I Do', href: '#services' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Resume', href: RESUME_HREF },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -21,15 +23,20 @@ export default function HeroSection() {
         y={-20}
         className="relative z-20 flex w-full items-center justify-between px-6 pt-6 md:px-10 md:pt-8"
       >
-        {NAV_LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-sm font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 md:text-lg lg:text-[1.4rem]"
-          >
-            {link.label}
-          </a>
-        ))}
+        {NAV_LINKS.map((link) => {
+          const external = !link.href.startsWith('#');
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener noreferrer' : undefined}
+              className="text-[0.7rem] font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 sm:text-sm md:text-lg lg:text-[1.4rem]"
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </FadeIn>
 
       <div className="overflow-hidden">

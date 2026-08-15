@@ -3,7 +3,7 @@ import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
 
 const ABOUT_COPY =
-  'I am an AI engineer. I take ideas from a rough problem statement to a system people actually use — the data, the model, the interface, and the infrastructure underneath. What I enjoy most is the part after the demo works: making it fast, affordable, and reliable enough to trust.';
+  "I'm an AI engineer. I build things that work — not just demos. From the first idea to something real people can use, and everything in between.";
 
 export default function AboutSection() {
   return (

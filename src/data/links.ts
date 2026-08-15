@@ -6,7 +6,7 @@ export const EMAIL = 'aniketsingh12090@gmail.com';
  * TODO: drop your resume PDF at `public/resume.pdf` — this path expects it
  * there. (Anything in `public/` is copied to the site root as-is.)
  */
-export const RESUME_HREF = './resume.pdf';
+export const RESUME_HREF = './aniket_singh_ai_engineer.pdf';
 
 export type Social = {
   label: string;

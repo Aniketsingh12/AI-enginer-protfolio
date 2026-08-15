@@ -1,7 +1,7 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.45in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{fontawesome5}
@@ -22,7 +22,7 @@
 
 % Customize section formatting
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{5pt}{2pt}
 
 % Custom commands for contact info.
 % linkedin/github/portfolio show the actual URL as visible text, not just a
@@ -58,36 +58,6 @@
     \portfolio{aniketsingh12.github.io/AI-enginer-protfolio}
 \end{center}
 
-\vspace{5pt}
-
-% Summary Section
-\section{SUMMARY}
-
-AI Engineer who takes ideas from a rough problem statement to a system people actually use -- spanning data, models, agents, and the infrastructure underneath. Comfortable across the stack; most focused on making systems fast, affordable, and reliable enough to trust in production.
-
-\vspace{4pt}
-
-% Experience Section
-\section{EXPERIENCE}
-
-\textbf{AI Engineer} \hfill \textbf{Jun 2024 -- Dec 2025} \\
-\textit{Acadally} \hfill Delhi, India \\
-\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
-    \item \textbf{Adaptive Tutoring System:} Spearheaded the development of an AI-powered tutoring platform for grades 5--8, personalizing learning experiences and improving engagement.
-    \item \textbf{Difficulty Calibration Agent:} Engineered an agent using Item Response Theory (IRT) to accurately calibrate question difficulty, integrating NCERT textbooks as retrieval-augmented generation (RAG) sources.
-    \item \textbf{Context-Aware Question Generator:} Leveraged large language models to produce dynamic, Bloom's Taxonomy-aligned questions, fostering critical thinking and deeper student interaction.
-    \item \textbf{Text-to-SQL Interface:} Designed and implemented a robust agent that translates teacher queries into SQL, enabling rapid data retrieval and real-time performance analytics.
-\end{itemize}
-
-\vspace{4pt}
-
-\textbf{Graduate Engineer Trainee} \hfill \textbf{Apr 2024 -- Jun 2024} \\
-\textit{Radius Synergies} \hfill Delhi, India \\
-\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
-    \item \textbf{Predictive Analytics:} Collaborated on a forecasting project for electricity consumption, contributing to strategic energy efficiency initiatives.
-    \item \textbf{High-Volume ETL Pipeline:} Developed an efficient ETL pipeline processing over 17 million records, significantly accelerating data preparation for machine learning models.
-\end{itemize}
-
 \vspace{4pt}
 
 % Projects Section
@@ -102,7 +72,7 @@ AI Engineer who takes ideas from a rough problem statement to a system people ac
     \item Closed code-injection, path-traversal, and SSRF vulnerabilities found during development, each backed by a regression test.
 \end{itemize}
 
-\vspace{4pt}
+\vspace{3pt}
 
 \textbf{TaskForce -- Multi-Agent Workflow Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-02}{\faExternalLinkAlt} \hfill \textbf{Multi-Agent Systems}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
@@ -111,7 +81,7 @@ AI Engineer who takes ideas from a rough problem statement to a system people ac
     \item Implemented a bounded ReAct tool-calling loop and per-agent model fallback so a workflow degrades gracefully instead of failing when a provider is unavailable.
 \end{itemize}
 
-\vspace{4pt}
+\vspace{3pt}
 
 \textbf{Lumio -- RAG Chatbot Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-04}{\faExternalLinkAlt} \hfill \textbf{RAG Platform}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
@@ -120,7 +90,30 @@ AI Engineer who takes ideas from a rough problem statement to a system people ac
     \item Replaced a synchronous document-ingestion path with a fast-fail check and inline fallback, cutting upload latency from 60--90s to about 5s when no background worker is running.
 \end{itemize}
 
-\vspace{4pt}
+\vspace{3pt}
+
+% Experience Section
+\section{EXPERIENCE}
+
+\textbf{AI Engineer} \hfill \textbf{Jun 2024 -- Dec 2025} \\
+\textit{Acadally} \hfill Delhi, India \\
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
+    \item \textbf{Adaptive Tutoring System:} Spearheaded the development of an AI-powered tutoring platform for grades 5--8, personalizing learning experiences and improving engagement.
+    \item \textbf{Difficulty Calibration Agent:} Engineered an agent using Item Response Theory (IRT) to accurately calibrate question difficulty, integrating NCERT textbooks as retrieval-augmented generation (RAG) sources.
+    \item \textbf{Context-Aware Question Generator:} Leveraged large language models to produce dynamic, Bloom's Taxonomy-aligned questions, fostering critical thinking and deeper student interaction.
+    \item \textbf{Text-to-SQL Interface:} Designed and implemented a robust agent that translates teacher queries into SQL, enabling rapid data retrieval and real-time performance analytics.
+\end{itemize}
+
+\vspace{3pt}
+
+\textbf{Graduate Engineer Trainee} \hfill \textbf{Apr 2024 -- Jun 2024} \\
+\textit{Radius Synergies} \hfill Delhi, India \\
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
+    \item \textbf{Predictive Analytics:} Collaborated on a forecasting project for electricity consumption, contributing to strategic energy efficiency initiatives.
+    \item \textbf{High-Volume ETL Pipeline:} Developed an efficient ETL pipeline processing over 17 million records, significantly accelerating data preparation for machine learning models.
+\end{itemize}
+
+\vspace{3pt}
 
 % Core Competencies -- flat list, not a table. Multi-column tables are a
 % known ATS-parsing risk: some parsers read column-by-column instead of
@@ -129,7 +122,7 @@ AI Engineer who takes ideas from a rough problem statement to a system people ac
 
 Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet\ Model Context Protocol (MCP) \textbullet\ Retrieval-Augmented Generation (RAG) \textbullet\ Natural Language Processing (NLP) \textbullet\ Voice \& Conversational AI \textbullet\ MLOps \& Model Deployment
 
-\vspace{4pt}
+\vspace{3pt}
 
 % Technical Skills Section
 \section{TECHNICAL SKILLS}
@@ -138,10 +131,9 @@ Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning
 \textbf{AI/ML \& Agentic Systems:} PyTorch, TensorFlow, Transformers, LangChain, ReAct Tool-Calling, Multi-Agent Orchestration, Scikit-learn \\
 \textbf{LLMs, RAG \& MCP:} Claude, GPT, Ollama, Together AI, Model Context Protocol (MCP), ChromaDB, FAISS, Sentence Transformers \\
 \textbf{Backend, Data \& Voice:} FastAPI, SQLAlchemy, Celery, Redis, WebSockets, PostgreSQL, Supabase, Whisper, ElevenLabs, Twilio, Pandas, NumPy \\
-\textbf{Cloud \& Tools:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, CI/CD, Weights \& Biases, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems) \\
-\textbf{Also:} React, Tailwind CSS -- light frontend for full-stack builds
+\textbf{Cloud, Tools \& DSA:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, CI/CD, Weights \& Biases, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems); light frontend: React, Tailwind CSS
 
-\vspace{4pt}
+\vspace{3pt}
 
 % Education Section
 \section{EDUCATION}
@@ -149,12 +141,12 @@ Agentic AI \& Multi-Agent Systems \textbullet\ Machine Learning \& Deep Learning
 \textbf{PSIT College of Engineering} \hfill \textbf{CGPA: 7.4} \\
 \textit{B.Tech in Computer Science and Engineering} \hfill Kanpur, India
 
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{Bal Bharti School} \hfill \textbf{CGPA: 7.2} \\
 \textit{12th -- PCM} \hfill Prayagraj, India
 
-\vspace{4pt}
+\vspace{3pt}
 
 % Certifications Section
 \section{CERTIFICATIONS}

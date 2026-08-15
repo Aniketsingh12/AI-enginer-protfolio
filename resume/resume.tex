@@ -24,15 +24,12 @@
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{4pt}{1pt}
 
-% Custom commands for contact info.
-% linkedin/github/portfolio show the actual URL as visible text, not just a
-% generic word -- most ATS parsers only extract visible PDF text, not the
-% underlying \href target, so a bare label alone loses the URL entirely.
+% Custom commands for contact info -- clean labels, all clickable.
 \newcommand{\phone}[1]{\faPhone\ #1}
 \newcommand{\email}[1]{\faEnvelope\ \href{mailto:#1}{#1}}
-\newcommand{\linkedin}[1]{\faLinkedin\ \href{https://linkedin.com/in/#1}{linkedin.com/in/#1}}
-\newcommand{\github}[1]{\faGithub\ \href{https://github.com/#1}{github.com/#1}}
-\newcommand{\portfolio}[1]{\faGlobe\ \href{https://#1}{#1}}
+\newcommand{\linkedin}[1]{\faLinkedin\ \href{https://linkedin.com/in/#1}{LinkedIn}}
+\newcommand{\github}[1]{\faGithub\ \href{https://github.com/#1}{GitHub}}
+\newcommand{\portfolio}[1]{\faGlobe\ \href{https://#1}{Portfolio}}
 
 % Remove default paragraph indentation
 \setlength{\parindent}{0pt}
@@ -65,7 +62,7 @@
 % (id="project-0N" on the site), not just the section as a whole.
 \section{PROJECTS}
 
-\textbf{MCP Forge -- Spec-to-MCP-Server Generator} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-01}{\faExternalLinkAlt} \hfill \textbf{Developer Platform}
+\textbf{MCP Forge -- Spec-to-MCP-Server Generator} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-01}{\faExternalLinkAlt\ View} \hfill \textbf{Developer Platform}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a platform that turns an OpenAPI spec or an installed Python library into a complete, installable MCP server through deterministic, audited code generation -- no LLM calls in the core pipeline.
     \item Built a playground that spawns the generated server as a real subprocess and drives it over the live MCP protocol, so what gets tested is exactly what ships, not a simulation.
@@ -73,7 +70,7 @@
 
 \vspace{2pt}
 
-\textbf{TaskForce -- Multi-Agent Workflow Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-02}{\faExternalLinkAlt} \hfill \textbf{Multi-Agent Systems}
+\textbf{TaskForce -- Multi-Agent Workflow Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-02}{\faExternalLinkAlt\ View} \hfill \textbf{Multi-Agent Systems}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a platform for orchestrating teams of AI agents through multi-step business workflows, with per-agent model routing (local or hosted) and live streaming execution.
     \item Designed a concurrency-safe orchestration engine for sequential, parallel, and conditional agent execution, with per-run cost caps and automatic crash recovery.
@@ -81,7 +78,7 @@
 
 \vspace{2pt}
 
-\textbf{Lumio -- RAG Chatbot Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-04}{\faExternalLinkAlt} \hfill \textbf{RAG Platform}
+\textbf{Lumio -- RAG Chatbot Platform} \quad \href{https://aniketsingh12.github.io/AI-enginer-protfolio/#project-04}{\faExternalLinkAlt\ View} \hfill \textbf{RAG Platform}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=1pt]
     \item Built a multi-tenant SaaS for RAG-powered chatbots, with per-tenant vector-database isolation and three interchangeable LLM backends, including a fully offline mode.
     \item Replaced a synchronous document-ingestion path with a fast-fail check and inline fallback, cutting upload latency from 60--90s to about 5s when no background worker is running.

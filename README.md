@@ -40,15 +40,24 @@ dist/index.html        ← all CSS and JS inlined, self-contained
 dist/img/portrait.png
 ```
 
-Publish that directory to GitHub Pages, Netlify, Vercel, Cloudflare Pages, or any static
-host. `vite.config.ts` sets `base: './'` and inlines the bundle as a classic script rather
-than an ES module, so `dist/index.html` works from a domain root, from a repo subpath
-(a GitHub Pages project site), **and by double-clicking it on your desktop** — the way the
-old single-file site did.
+`vite.config.ts` sets `base: './'` and inlines the bundle as a classic script rather than
+an ES module, so `dist/index.html` works from a domain root, from a repo subpath (a GitHub
+Pages project site), and by double-clicking it on your desktop.
 
-> If your GitHub Pages site serves the repo *root*, it will now show a blank page, because
-> the root `index.html` is the build's source entry rather than the finished page. Point
-> Pages at `dist/` (or copy `dist/`'s two files to wherever you publish).
+### GitHub Pages (this repo)
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the site and
+publishes `dist/` automatically on every push to `main` — no manual build step, and the
+unbuilt root `index.html` (Vite's entry stub, not the real page) is never what gets served.
+
+**One-time setup, in the repo on GitHub:** Settings → Pages → **Build and deployment →
+Source → GitHub Actions**. If Source is currently set to "Deploy from a branch", that is
+what was serving the blank page — it was publishing the root `index.html` (a `<div
+id="root">` and a script tag) as-is, with nothing to build it.
+
+For any other static host (Netlify, Vercel, Cloudflare Pages), publish the `dist/`
+directory after running `npm run build` — set the build command to `npm run build` and the
+publish/output directory to `dist`.
 
 > Previously this repo served a hand-written `index.html` straight from the root. That
 > version is preserved in [`legacy/`](legacy/) — it is no longer built or deployed.

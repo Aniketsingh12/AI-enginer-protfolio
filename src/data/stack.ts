@@ -1,0 +1,136 @@
+import {
+  Boxes,
+  Braces,
+  Brain,
+  Cloud,
+  Database,
+  Layers,
+  MonitorSmartphone,
+  AudioLines,
+  type LucideIcon,
+} from 'lucide-react';
+
+export type StackGroup = {
+  label: string;
+  icon: LucideIcon;
+  items: string[];
+};
+
+export const STACK: StackGroup[] = [
+  {
+    label: 'Languages',
+    icon: Braces,
+    items: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'C++'],
+  },
+  {
+    label: 'LLMs & Agents',
+    icon: Brain,
+    items: [
+      'MCP',
+      'Claude',
+      'GPT',
+      'Gemini',
+      'Llama',
+      'Ollama',
+      'Together AI',
+      'LangChain',
+      'CrewAI',
+      'ReAct loops',
+      'Function calling',
+      'Prompt engineering',
+      'Fine-tuning',
+    ],
+  },
+  {
+    label: 'RAG & Vector',
+    icon: Layers,
+    items: [
+      'ChromaDB',
+      'FAISS',
+      'Pinecone',
+      'Sentence Transformers',
+      'Hugging Face',
+      'Embeddings',
+      'Chunking',
+      'Reranking',
+      'Semantic search',
+    ],
+  },
+  {
+    label: 'ML & Deep Learning',
+    icon: Boxes,
+    items: [
+      'PyTorch',
+      'TensorFlow',
+      'Scikit-learn',
+      'Transformers',
+      'Pandas',
+      'NumPy',
+      'Time-series forecasting',
+    ],
+  },
+  {
+    label: 'Backend & Data',
+    icon: Database,
+    items: [
+      'FastAPI',
+      'Pydantic v2',
+      'SQLAlchemy',
+      'Celery',
+      'Redis',
+      'WebSockets',
+      'httpx',
+      'Jinja2',
+      'PostgreSQL',
+      'Supabase',
+      'SQLite',
+    ],
+  },
+  {
+    label: 'Frontend',
+    icon: MonitorSmartphone,
+    items: [
+      'React 18',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Framer Motion',
+      'React Flow',
+      'React Query',
+      'React Router',
+      'Zustand',
+    ],
+  },
+  {
+    label: 'Voice & Channels',
+    icon: AudioLines,
+    items: [
+      'Whisper',
+      'faster-whisper',
+      'ElevenLabs',
+      'Piper',
+      'Twilio Voice',
+      'Exotel',
+      'WhatsApp Cloud API',
+      'Slack API',
+    ],
+  },
+  {
+    label: 'Cloud & MLOps',
+    icon: Cloud,
+    items: [
+      'AWS SageMaker',
+      'Bedrock',
+      'Lambda',
+      'S3',
+      'EC2',
+      'IAM',
+      'CloudWatch',
+      'Docker',
+      'Railway',
+      'Render',
+      'GitHub Actions',
+      'Weights & Biases',
+    ],
+  },
+];

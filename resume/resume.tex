@@ -1,0 +1,137 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Remove page numbers
+\pagenumbering{gobble}
+
+% Plain black links, no boxes -- colored/boxed links look unprofessional
+% when printed or opened in a PDF viewer with default hyperref styling.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    pdfborder={0 0 0}
+}
+
+% Customize section formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% Custom commands for contact info.
+% linkedin/github show the actual URL as visible text, not just the word
+% "LinkedIn"/"GitHub" -- most ATS parsers only extract visible PDF text, not
+% the underlying \href target, so a generic label alone loses the URL.
+\newcommand{\phone}[1]{\faPhone\ #1}
+\newcommand{\email}[1]{\faEnvelope\ \href{mailto:#1}{#1}}
+\newcommand{\linkedin}[1]{\faLinkedin\ \href{https://linkedin.com/in/#1}{linkedin.com/in/#1}}
+\newcommand{\github}[1]{\faGithub\ \href{https://github.com/#1}{github.com/#1}}
+
+% Remove default paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Reduce line spacing
+\renewcommand{\baselinestretch}{0.95}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge \textbf{ANIKET SINGH}} \\
+    \vspace{1pt}
+    Prayagraj, Uttar Pradesh \\
+    \vspace{2pt}
+    \phone{+91-7985287855} \quad
+    \email{aniketsingh12090@gmail.com} \quad
+    % TODO: verify this is your real LinkedIn slug -- unconfirmed elsewhere.
+    \linkedin{aniketsingh} \quad
+    \github{Aniketsingh12}
+\end{center}
+
+\vspace{6pt}
+
+% Experience Section
+\section{EXPERIENCE}
+
+\textbf{AI Engineer} \hfill \textbf{Jun 2024 -- Dec 2025} \\
+\textit{Acadally} \hfill Delhi, India \\
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
+    \item \textbf{Adaptive Tutoring System:} Spearheaded the development of an AI-powered tutoring platform for grades 5--8, personalizing learning experiences and improving engagement.
+    \item \textbf{Difficulty Calibration Agent:} Engineered an agent using Item Response Theory (IRT) to accurately calibrate question difficulty, integrating NCERT textbooks as retrieval-augmented generation (RAG) sources.
+    \item \textbf{Context-Aware Question Generator:} Leveraged large language models to produce dynamic, Bloom's Taxonomy-aligned questions, fostering critical thinking and deeper student interaction.
+    \item \textbf{Text-to-SQL Interface:} Designed and implemented a robust agent that translates teacher queries into SQL, enabling rapid data retrieval and real-time performance analytics.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Graduate Engineer Trainee} \hfill \textbf{Apr 2024 -- Jun 2024} \\
+\textit{Radius Synergies} \hfill Delhi, India \\
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
+    \item \textbf{Predictive Analytics:} Collaborated on a forecasting project for electricity consumption, contributing to strategic energy efficiency initiatives.
+    \item \textbf{High-Volume ETL Pipeline:} Developed an efficient ETL pipeline processing over 17 million records, significantly accelerating data preparation for machine learning models.
+\end{itemize}
+
+\vspace{6pt}
+
+% Projects Section
+\section{PROJECTS}
+
+% TODO: point this at the actual repo -- github.com/Aniketsingh12 is a
+% placeholder (your profile root), not this specific project's repo.
+\textbf{MCP AI Assistant -- Multi-Source Intelligence Platform} \quad \href{https://github.com/Aniketsingh12}{\faGithub} \quad \textbf{| AI/ML, Full Stack} \hfill \textbf{Dec 2024} \\
+\vspace{2pt}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item \textbf{Multi-Source Integration:} Built an AI assistant using Model Context Protocol (MCP) that dynamically connects to external services (web scraping, search APIs, accommodation data) for real-time information retrieval.
+    \item \textbf{Conversational AI:} Implemented a LangChain-powered agent with Groq's Llama3-8B model, featuring persistent memory management and context-aware interactions across user sessions.
+    \item \textbf{Full-Stack Development:} Developed both Streamlit and Flask web interfaces with async processing, comprehensive error handling, and Docker containerization for scalable deployment.
+\end{itemize}
+
+\vspace{6pt}
+
+% Core Competencies -- flat list, not a table. Multi-column tables are a
+% known ATS-parsing risk: some parsers read column-by-column instead of
+% row-by-row, scrambling the order these keywords come out in.
+\section{CORE COMPETENCIES}
+
+Machine Learning \& Deep Learning \textbullet\ Generative AI \& LLMs \textbullet\ Model Context Protocol (MCP) \textbullet\ Natural Language Processing (NLP) \textbullet\ Retrieval-Augmented Generation (RAG) \textbullet\ MLOps \& Model Deployment \textbullet\ Data Structures \& Algorithms
+
+\vspace{6pt}
+
+% Technical Skills Section
+\section{TECHNICAL SKILLS}
+
+\textbf{Languages:} Python (Advanced), C++ (Beginner), SQL (Intermediate) \\
+\textbf{AI/ML Frameworks:} PyTorch, TensorFlow, Transformers, LangChain, Scikit-learn \\
+\textbf{MLOps \& Cloud:} Docker, AWS (EC2, S3, SageMaker), Git/GitHub, Model Versioning, Weights \& Biases \\
+\textbf{Data \& Algorithms:} Pandas, NumPy, DSA (Arrays, Trees, Graphs, DP), LeetCode (200+ problems)
+
+\vspace{6pt}
+
+% Education Section
+\section{EDUCATION}
+
+\textbf{PSIT College of Engineering} \hfill \textbf{CGPA: 7.4} \\
+\textit{B.Tech in Computer Science and Engineering} \hfill Kanpur, India
+
+\vspace{3pt}
+
+\textbf{Bal Bharti School} \hfill \textbf{CGPA: 7.2} \\
+\textit{12th -- PCM} \hfill Prayagraj, India
+
+\vspace{6pt}
+
+% Certifications Section
+\section{CERTIFICATIONS}
+
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,partopsep=0pt]
+    \item Google Data Analytics Professional Certificate (Coursera)
+    \item Data Structures and Algorithms (Specialization)
+\end{itemize}
+
+\end{document}
